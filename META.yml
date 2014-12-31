@@ -1,0 +1,28 @@
+---
+abstract: 'Mint a Map::Metro Map distribution'
+author:
+  - 'Erik Carlsson <info@code301.com>'
+build_requires:
+  Module::Build: '0.3601'
+configure_requires:
+  Module::Build: '0.3601'
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.143240'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Dist-Zilla-MintingProfile-MapMetro-Map
+no_index:
+  directory:
+    - t
+    - xt
+    - inc
+    - share
+    - eg
+    - examples
+resources:
+  bugtracker: https://github.com/Csson/p5-Dist-Zilla-MintingProfile-MapMetro-Map/issues
+  homepage: https://github.com/Csson/p5-Dist-Zilla-MintingProfile-MapMetro-Map
+  repository: https://github.com/Csson/p5-Dist-Zilla-MintingProfile-MapMetro-Map.git
+version: '0.1000'

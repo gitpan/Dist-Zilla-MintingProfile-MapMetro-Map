@@ -18,7 +18,7 @@ my %module_build_args = (
     "Erik Carlsson <info\@code301.com>"
   ],
   "dist_name" => "Dist-Zilla-MintingProfile-MapMetro-Map",
-  "dist_version" => "0.1100",
+  "dist_version" => "0.1200",
   "license" => "perl",
   "module_name" => "Dist::Zilla::MintingProfile::MapMetro::Map",
   "recommends" => {},
@@ -39,7 +39,7 @@ my %module_build_args = (
     "Dist::Zilla::Plugin::License" => 0,
     "Dist::Zilla::Plugin::Manifest" => 0,
     "Dist::Zilla::Plugin::ManifestSkip" => 0,
-    "Dist::Zilla::Plugin::MapMetro::MakeGraphViz" => 0,
+    "Dist::Zilla::Plugin::MapMetro::MakeGraphViz" => "0.1100",
     "Dist::Zilla::Plugin::MetaJSON" => 0,
     "Dist::Zilla::Plugin::MetaNoIndex" => 0,
     "Dist::Zilla::Plugin::MetaYAML" => 0,

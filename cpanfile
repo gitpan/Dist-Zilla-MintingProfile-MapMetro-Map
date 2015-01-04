@@ -10,7 +10,7 @@ requires 'Dist::Zilla::Plugin::NextRelease';
 requires 'Dist::Zilla::Plugin::PreviousVersion::Changelog';
 requires 'Dist::Zilla::Plugin::NextVersion::Semantic';
 requires 'Dist::Zilla::Plugin::Git::Check';
-requires 'Dist::Zilla::Plugin::MapMetro::MakeGraphViz';
+requires 'Dist::Zilla::Plugin::MapMetro::MakeGraphViz', '0.1100';
 requires 'Dist::Zilla::Plugin::GithubMeta';
 requires 'Dist::Zilla::Plugin::ReadmeAnyFromPod';
 requires 'Dist::Zilla::Plugin::MetaNoIndex';

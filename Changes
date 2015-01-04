@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-MintingProfile-MapMetro-Map
 
+0.1200 2015-01-04T18:35:02Z CET
+ [Enhancements]
+ - Separated minting of the metro-file.
+
 0.1100 2015-01-04T13:51:15Z CET
  [Enhancements]
  - Much improved minting.

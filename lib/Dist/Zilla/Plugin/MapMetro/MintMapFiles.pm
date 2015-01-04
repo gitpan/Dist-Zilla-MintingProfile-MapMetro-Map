@@ -1,19 +1,19 @@
 use 5.14.0;
 
 package Dist::Zilla::Plugin::MapMetro::MintMapFiles;
-$Dist::Zilla::Plugin::MapMetro::MintMapFiles::VERSION = '0.1100';
+$Dist::Zilla::Plugin::MapMetro::MintMapFiles::VERSION = '0.1200';
 use Moose;
 extends 'Dist::Zilla::Plugin::InlineFiles';
 with 'Dist::Zilla::Role::TextTemplate';
-with 'Dist::Zilla::Role::FileGatherer';
 
 override 'merged_section_data' => sub {
     my $self = shift;
 
     my $data = super;
     for my $name (keys %{ $data }) {
-        my $city = $self->city_name;
+        my $city = $self->zilla->name;
         $city =~ s{^Map-Metro-Plugin-Map-}{};
+
         $data->{ $name } = \$self->fill_in_string(
             ${ $data->{ $name } }, {
                 dist => \($self->zilla),
@@ -24,33 +24,6 @@ override 'merged_section_data' => sub {
     }
     return $data;
 };
-
-sub gather_files {
-    my $self = shift;
-
-    $self->add_file(Dist::Zilla::File::InMemory->new({
-        name => sprintf ('share/map-%s.metro', lc $self->city_name),
-        content => $self->map_contents,
-    }));
-}
-
-sub city_name {
-    my $self = shift;
-    my $city = $self->zilla->name;
-    $city =~ s{^Map-Metro-Plugin-Map-}{};
-    return $city;
-}
-
-sub map_contents {
-return q{--stations
-
---lines
-
---transfers
-
---segments
-};
-}
 
 1;
 

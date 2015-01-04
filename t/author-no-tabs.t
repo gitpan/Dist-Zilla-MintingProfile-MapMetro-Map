@@ -17,6 +17,7 @@ use Test::NoTabs;
 my @files = (
     'lib/Dist/Zilla/MintingProfile/MapMetro/Map.pm',
     'lib/Dist/Zilla/Plugin/MapMetro/MintMapFiles.pm',
+    'lib/Dist/Zilla/Plugin/MapMetro/MintMetroFile.pm',
     't/basic.t'
 );
 

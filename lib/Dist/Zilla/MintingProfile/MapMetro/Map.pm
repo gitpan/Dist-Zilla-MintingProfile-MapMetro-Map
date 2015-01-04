@@ -1,7 +1,7 @@
 use 5.14.0;
 
 package Dist::Zilla::MintingProfile::MapMetro::Map;
-$Dist::Zilla::MintingProfile::MapMetro::Map::VERSION = '0.1000';
+$Dist::Zilla::MintingProfile::MapMetro::Map::VERSION = '0.1100';
 # VERSION
 
 use Moose;

@@ -1,25 +1,56 @@
 use 5.14.0;
 
 package Dist::Zilla::Plugin::MapMetro::MintMapFiles;
-$Dist::Zilla::Plugin::MapMetro::MintMapFiles::VERSION = '0.1000';
+$Dist::Zilla::Plugin::MapMetro::MintMapFiles::VERSION = '0.1100';
 use Moose;
 extends 'Dist::Zilla::Plugin::InlineFiles';
 with 'Dist::Zilla::Role::TextTemplate';
+with 'Dist::Zilla::Role::FileGatherer';
 
 override 'merged_section_data' => sub {
     my $self = shift;
 
     my $data = super;
     for my $name (keys %{ $data }) {
+        my $city = $self->city_name;
+        $city =~ s{^Map-Metro-Plugin-Map-}{};
         $data->{ $name } = \$self->fill_in_string(
             ${ $data->{ $name } }, {
                 dist => \($self->zilla),
+                city => \$city,
                 plugin => \($self),
             },
         );
     }
     return $data;
 };
+
+sub gather_files {
+    my $self = shift;
+
+    $self->add_file(Dist::Zilla::File::InMemory->new({
+        name => sprintf ('share/map-%s.metro', lc $self->city_name),
+        content => $self->map_contents,
+    }));
+}
+
+sub city_name {
+    my $self = shift;
+    my $city = $self->zilla->name;
+    $city =~ s{^Map-Metro-Plugin-Map-}{};
+    return $city;
+}
+
+sub map_contents {
+return q{--stations
+
+--lines
+
+--transfers
+
+--segments
+};
+}
 
 1;
 
@@ -42,21 +73,13 @@ requires 'perl', '5.014000';
 
 requires 'Moose::Role', '2.0000';
 requires 'Map::Metro', '0.1900';
-__[ share/map-cityname.metro ]__
---stations
-
---lines
-
---transfers
-
---segments
 __[ t/basic.t ]__
 use strict;
 use Test::More;
 
 use Map::Metro;
 
-my $graph = Map::Metro->new('<<Your City>>')->parse;
+my $graph = Map::Metro->new('{{ $city }}')->parse;
 my $routing = $graph->routing_for(qw/1 3/);
 
 is $routing->get_route(0)->get_step(0)->origin_line_station->station->name, '<<Name of first station in route>>', 'Found route';
@@ -103,6 +126,11 @@ allow_dirty = Changes
 allow_dirty = META.json
 allow_dirty = README.md
 allow_dirty = Build.PL
+
+[MapMetro::MakeGraphViz]
+
+[GithubMeta]
+issues = 1
 
 [ReadmeAnyFromPod]
 filename = README.md

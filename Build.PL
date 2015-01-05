@@ -18,12 +18,13 @@ my %module_build_args = (
     "Erik Carlsson <info\@code301.com>"
   ],
   "dist_name" => "Dist-Zilla-MintingProfile-MapMetro-Map",
-  "dist_version" => "0.1200",
+  "dist_version" => "0.1300",
   "license" => "perl",
   "module_name" => "Dist::Zilla::MintingProfile::MapMetro::Map",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
+    "Dist::Iller" => 0,
     "Dist::Zilla" => "5.000",
     "Dist::Zilla::Plugin::CheckChangesHasContent" => 0,
     "Dist::Zilla::Plugin::ConfirmRelease" => 0,
@@ -40,6 +41,7 @@ my %module_build_args = (
     "Dist::Zilla::Plugin::Manifest" => 0,
     "Dist::Zilla::Plugin::ManifestSkip" => 0,
     "Dist::Zilla::Plugin::MapMetro::MakeGraphViz" => "0.1100",
+    "Dist::Zilla::Plugin::MapMetro::MakeLinePod" => 0,
     "Dist::Zilla::Plugin::MetaJSON" => 0,
     "Dist::Zilla::Plugin::MetaNoIndex" => 0,
     "Dist::Zilla::Plugin::MetaYAML" => 0,

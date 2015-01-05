@@ -23,6 +23,7 @@ no_index:
     - eg
     - examples
 requires:
+  Dist::Iller: '0'
   Dist::Zilla: '5.000'
   Dist::Zilla::Plugin::CheckChangesHasContent: '0'
   Dist::Zilla::Plugin::ConfirmRelease: '0'
@@ -39,6 +40,7 @@ requires:
   Dist::Zilla::Plugin::Manifest: '0'
   Dist::Zilla::Plugin::ManifestSkip: '0'
   Dist::Zilla::Plugin::MapMetro::MakeGraphViz: '0.1100'
+  Dist::Zilla::Plugin::MapMetro::MakeLinePod: '0'
   Dist::Zilla::Plugin::MetaJSON: '0'
   Dist::Zilla::Plugin::MetaNoIndex: '0'
   Dist::Zilla::Plugin::MetaYAML: '0'
@@ -61,4 +63,4 @@ resources:
   bugtracker: https://github.com/Csson/p5-Dist-Zilla-MintingProfile-MapMetro-Map/issues
   homepage: https://github.com/Csson/p5-Dist-Zilla-MintingProfile-MapMetro-Map
   repository: https://github.com/Csson/p5-Dist-Zilla-MintingProfile-MapMetro-Map.git
-version: '0.1200'
+version: '0.1300'
